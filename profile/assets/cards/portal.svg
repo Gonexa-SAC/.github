@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="156" viewBox="0 0 400 156" role="img" aria-label="Portal de Proveedores">
+  <title>Portal de Proveedores</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f44ca"/>
+      <stop offset="1" stop-color="#1809ba"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f44ca" stop-opacity=".85"/>
+      <stop offset=".6" stop-color="#2a2d4a" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#3ef75c" stop-opacity=".6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="1" cy="0" r="1">
+      <stop offset="0" stop-color="#3123c1" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#3123c1" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="clip"><rect width="400" height="156" rx="18"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="400" height="156" fill="#0F1020"/>
+    <rect width="400" height="156" fill="url(#glow)"/>
+  </g>
+  <rect x=".75" y=".75" width="398.5" height="154.5" rx="17.25" fill="none" stroke="url(#edge)" stroke-width="1.5"/>
+  <g transform="translate(26 26) scale(.875)">
+    <rect width="64" height="64" rx="16" fill="url(#tile)"/>
+    <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="14" width="24" height="36" rx="3"/><path d="M26 22h4M34 22h4M26 30h4M34 30h4"/><rect x="29" y="40" width="6" height="10" rx="1" stroke="#3ef75c"/></g>
+  </g>
+  <text x="98" y="52" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">Portal de Proveedores</text>
+  <g transform="translate(98 62)">
+    <rect width="132.2" height="22" rx="11" fill="#3ef75c" fill-opacity=".12" stroke="#3ef75c" stroke-opacity=".4"/>
+    <circle cx="13" cy="11" r="3" fill="#3ef75c"/>
+    <text x="23" y="15.4" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11.5" font-weight="600" fill="#8DF9A2">En producción</text>
+  </g>
+  <text font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" fill="#A9B1C6"><tspan x="26" y="118">Plataforma B2B para proveedores corporativos:</tspan><tspan x="26" y="138">homologación, licitaciones y evaluación.</tspan></text>
+</svg>
