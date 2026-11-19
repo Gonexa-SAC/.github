@@ -20,11 +20,11 @@ Somos un equipo de tecnología de Perú que dejó de construir solo para otros y
 
 ## Nuestros productos
 
-<p align="center"><a href="https://gonexa.io/impulsa"><img src="assets/cards/impulsa.svg" alt="Impulsa: SaaS multi-tenant para gestionar un negocio, con agenda, inventario, facturación y más." width="49.9%"></a><a href="https://gonexa.io/portal"><img src="assets/cards/portal.svg" alt="Portal de Proveedores: plataforma B2B para proveedores corporativos, con homologación, licitaciones y evaluación." width="49.9%"></a></p>
+<p align="center"><a href="https://gonexa.io/impulsa"><img src="assets/cards/impulsa.svg" alt="Impulsa: SaaS multi-tenant para gestionar un negocio, con agenda, inventario, facturación y más." width="49.9%" align="top"></a><a href="https://gonexa.io/portal"><img src="assets/cards/portal.svg" alt="Portal de Proveedores: plataforma B2B para proveedores corporativos, con homologación, licitaciones y evaluación." width="49.9%" align="top"></a></p>
 
-<p align="center"><a href="https://gonexa.io/emite"><img src="assets/cards/emite.svg" alt="Emite: facturación electrónica ante SUNAT, con XML UBL 2.1, firma y envío de comprobantes." width="49.9%"></a><a href="https://gonexa.io/sella"><img src="assets/cards/sella.svg" alt="Sella: firma digital XAdES y certificados X.509 para documentos electrónicos peruanos." width="49.9%"></a></p>
+<p align="center"><a href="https://gonexa.io/emite"><img src="assets/cards/emite.svg" alt="Emite: facturación electrónica ante SUNAT, con XML UBL 2.1, firma y envío de comprobantes." width="49.9%" align="top"></a><a href="https://gonexa.io/sella"><img src="assets/cards/sella.svg" alt="Sella: firma digital XAdES y certificados X.509 para documentos electrónicos peruanos." width="49.9%" align="top"></a></p>
 
-<p align="center"><a href="https://gonexa.io/#portafolio"><img src="assets/cards/apis.svg" alt="APIs SUNAT/RENIEC y Ubigeo: consulta de DNI, RUC y datos fiscales, y datos geográficos de Perú." width="49.9%"></a><a href="https://pub.dev/packages/izipay_sdk"><img src="assets/cards/izipay-sdk.svg" alt="izipay_sdk: plugin de Flutter para integrar pagos con Izipay, publicado en pub.dev." width="49.9%"></a></p>
+<p align="center"><a href="https://gonexa.io/#portafolio"><img src="assets/cards/apis.svg" alt="APIs SUNAT/RENIEC y Ubigeo: consulta de DNI, RUC y datos fiscales, y datos geográficos de Perú." width="49.9%" align="top"></a><a href="https://pub.dev/packages/izipay_sdk"><img src="assets/cards/izipay-sdk.svg" alt="izipay_sdk: plugin de Flutter para integrar pagos con Izipay, publicado en pub.dev." width="49.9%" align="top"></a></p>
 
 <img src="assets/divider.svg" alt="" width="100%">
 
