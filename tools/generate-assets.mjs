@@ -108,9 +108,20 @@ const cards = [
   { file: 'izipay-sdk', glyph: 'card', name: 'izipay_sdk', pill: 'pub.dev', lines: ['Plugin de Flutter para integrar pagos con', 'Izipay, publicado en pub.dev.'] },
 ];
 
-for (const c of cards) {
+// Cards sit side by side in README rows, each image rendered at ~50% width with no whitespace
+// between them. Each file carries its share of the gap on its inner side only, so the gap scales
+// with the page exactly like the 16/860 gap of the technology panel:
+//   2 * innerPad / (400 + innerPad) * 0.5 = 16 / 860  ->  innerPad ~ 7.6
+// Vertical spacing between rows comes from the README paragraph margin (16px).
+const innerPad = 7.6;
+for (const [index, c] of cards.entries()) {
+  const column = index % 2;
+  const ml = column === 1 ? innerPad : 0;
+  const mr = column === 0 ? innerPad : 0;
+  const mt = 0, mb = 0;
+  const cw = 400 + ml + mr, ch = 156 + mt + mb;
   const pillW = c.pill.length * 7.4 + 36;
-  writeFileSync(`${root}/assets/cards/${c.file}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="156" viewBox="0 0 400 156" role="img" aria-label="${c.name}">
+  writeFileSync(`${root}/assets/cards/${c.file}.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="${cw}" height="${ch}" viewBox="0 0 ${cw} ${ch}" role="img" aria-label="${c.name}">
   <title>${c.name}</title>
   <defs>
     <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
@@ -128,6 +139,7 @@ for (const c of cards) {
     </radialGradient>
     <clipPath id="clip"><rect width="400" height="156" rx="18"/></clipPath>
   </defs>
+  <g transform="translate(${ml} ${mt})">
   <g clip-path="url(#clip)">
     <rect width="400" height="156" fill="#0F1020"/>
     <rect width="400" height="156" fill="url(#glow)"/>
@@ -144,6 +156,7 @@ for (const c of cards) {
     <text x="23" y="15.4" font-family="${FONT}" font-size="11.5" font-weight="600" fill="#8DF9A2">${c.pill}</text>
   </g>
   <text font-family="${FONT}" font-size="14" fill="#A9B1C6"><tspan x="26" y="118">${c.lines[0]}</tspan><tspan x="26" y="138">${c.lines[1]}</tspan></text>
+  </g>
 </svg>
 `);
 }
