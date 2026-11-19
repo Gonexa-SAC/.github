@@ -1,6 +1,6 @@
 // Regenerates the profile artwork: bun tools/generate-assets.mjs
 // Source logo: profile/gonexa-logo-white.svg (official logo from https://gonexa.io).
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('../profile', import.meta.url)).replaceAll('\\', '/');
@@ -186,6 +186,100 @@ writeFileSync(`${root}/assets/process.svg`, `<svg xmlns="http://www.w3.org/2000/
   <rect x=".75" y=".75" width="858.5" height="148.5" rx="17.25" fill="none" stroke="url(#edge)" stroke-width="1.5"/>
   <rect x="${colW / 2}" y="46.5" width="${colW * (steps.length - 1)}" height="3" rx="1.5" fill="url(#rail)" fill-opacity=".7"/>
   ${nodes}
+</svg>
+`);
+
+/* ---------- Technology panel ---------- */
+// An SVG loaded through <img> cannot reference external images, so every icon is embedded.
+// Icons live in profile/tech/<id>.svg (skillicons.dev tiles plus four generated tiles) and are
+// downloaded once when missing.
+async function iconSource(id) {
+  const file = `${root}/tech/${id}.svg`;
+  if (!existsSync(file)) {
+    const response = await fetch(`https://skillicons.dev/icons?i=${id}`);
+    if (!response.ok) throw new Error(`Icon ${id}: HTTP ${response.status}`);
+    writeFileSync(file, await response.text());
+  }
+  return readFileSync(file, 'utf8');
+}
+
+// Nests an icon and prefixes its ids so several icons can share one document.
+function embedIcon(source, prefix, x, y, size) {
+  const match = source.match(/<svg\b([^>]*)>([\s\S]*)<\/svg>\s*$/);
+  if (!match) throw new Error(`Unrecognised icon markup for ${prefix}`);
+  const viewBox = match[1].match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 48 48';
+  let body = match[2];
+  for (const id of new Set([...body.matchAll(/\sid="([^"]+)"/g)].map(found => found[1]))) {
+    const escaped = id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    body = body
+      .replace(new RegExp(`\\sid="${escaped}"`, 'g'), ` id="${prefix}-${id}"`)
+      .replace(new RegExp(`url\\(#${escaped}\\)`, 'g'), `url(#${prefix}-${id})`)
+      .replace(new RegExp(`(xlink:)?href="#${escaped}"`, 'g'), (_, ns) => `${ns ?? ''}href="#${prefix}-${id}"`);
+  }
+  return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${viewBox}" fill="none">${body}</svg>`;
+}
+
+const groups = [
+  { title: 'Móvil y web', note: ['Apps nativas y multiplataforma', 'para iOS y Android, y web moderna.'], full: true,
+    items: [['flutter', 'Flutter'], ['kotlin', 'Kotlin'], ['swift', 'Swift'], ['react', 'React'], ['angular', 'Angular'], ['nextjs', 'Next.js'], ['ts', 'TypeScript'], ['tailwind', 'Tailwind']] },
+  { title: 'Backend',
+    items: [['nestjs', 'NestJS'], ['nodejs', 'Node.js'], ['dotnet', '.NET'], ['laravel', 'Laravel'], ['java', 'Java'], ['spring', 'Spring']] },
+  { title: 'Datos',
+    items: [['postgres', 'PostgreSQL'], ['mysql', 'MySQL'], ['mongodb', 'MongoDB'], ['redis', 'Redis'], ['firebase', 'Firebase'], ['supabase', 'Supabase']] },
+  { title: 'Nube y DevOps',
+    items: [['docker', 'Docker'], ['aws', 'AWS'], ['azure', 'Azure'], ['nginx', 'Nginx'], ['githubactions', 'Actions']] },
+  { title: 'Diseño, IA e integraciones',
+    items: [['figma', 'Figma'], ['n8n', 'n8n'], ['claude', 'Claude'], ['openai', 'OpenAI'], ['sap', 'SAP']] },
+];
+
+const cardH = 150, rowGap = 16, halfW = 422;
+let techCards = '';
+let row = 0, column = 0;
+for (const [g, group] of groups.entries()) {
+  const full = Boolean(group.full);
+  const x = full ? 0 : column * (halfW + 16);
+  const y = row * (cardH + rowGap);
+  const w = full ? 860 : halfW;
+  let icons = '';
+  for (const [i, [id, label]] of group.items.entries()) {
+    const ix = 24 + i * 64;
+    icons += embedIcon(await iconSource(id), `${id}`, ix, 58, 44)
+      + `<text x="${ix + 22}" y="122" text-anchor="middle" font-family="${FONT}" font-size="10.5" fill="#A9B1C6">${label}</text>`;
+  }
+  const note = group.note
+    ? `<text font-family="${FONT}" font-size="13" fill="#A9B1C6"><tspan x="556" y="76">${group.note[0]}</tspan><tspan x="556" y="96">${group.note[1]}</tspan></text>`
+    : '';
+  techCards += `
+  <g transform="translate(${x} ${y})">
+    <rect width="${w}" height="${cardH}" rx="18" fill="#0F1020"/>
+    <rect width="${w}" height="${cardH}" rx="18" fill="url(#techGlow)"/>
+    <rect x=".75" y=".75" width="${w - 1.5}" height="${cardH - 1.5}" rx="17.25" fill="none" stroke="url(#techEdge)" stroke-width="1.5"/>
+    <rect x="24" y="22" width="4" height="18" rx="2" fill="url(#techAccent)"/>
+    <text x="38" y="37" font-family="${FONT}" font-size="15" font-weight="700" fill="#FFFFFF">${group.title}</text>
+    ${icons}
+    ${note}
+  </g>`;
+  if (full) { row += 1; column = 0; } else if (column === 1) { row += 1; column = 0; } else { column = 1; }
+}
+const techRows = row;
+const techH = techRows * cardH + (techRows - 1) * rowGap;
+writeFileSync(`${root}/assets/tech.svg`, `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="860" height="${techH}" viewBox="0 0 860 ${techH}" role="img" aria-label="Tecnologías con las que trabajamos">
+  <title>Tecnologías con las que trabajamos</title>
+  <defs>
+    <linearGradient id="techEdge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f44ca" stop-opacity=".85"/>
+      <stop offset=".6" stop-color="#2a2d4a" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#3ef75c" stop-opacity=".55"/>
+    </linearGradient>
+    <linearGradient id="techAccent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4f44ca"/>
+      <stop offset="1" stop-color="#3ef75c"/>
+    </linearGradient>
+    <radialGradient id="techGlow" cx="1" cy="0" r="1">
+      <stop offset="0" stop-color="#3123c1" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#3123c1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>${techCards}
 </svg>
 `);
 

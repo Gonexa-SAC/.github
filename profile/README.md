@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://gonexa.io"><img src="https://img.shields.io/badge/Sitio_web-gonexa.io-1809BA?style=for-the-badge&amp;labelColor=0A0A1C" alt="Sitio web: gonexa.io"></a>
   <a href="https://gonexa.io/#portafolio"><img src="https://img.shields.io/badge/Productos-ver_portafolio-3123C1?style=for-the-badge&amp;labelColor=0A0A1C" alt="Ver el portafolio de productos"></a>
-  <a href="mailto:contacto@gonexa.io"><img src="https://img.shields.io/badge/Correo-contacto@gonexa.io-3EF75C?style=for-the-badge&amp;labelColor=0A0A1C" alt="Correo: contacto@gonexa.io"></a>
+  <a href="mailto:contacto@gonexa.io"><img src="https://img.shields.io/badge/Correo-contacto@gonexa.io-0B7A3E?style=for-the-badge&amp;labelColor=0A0A1C" alt="Correo: contacto@gonexa.io"></a>
 </p>
 
 <img src="assets/divider.svg" alt="" width="100%">
@@ -51,45 +51,9 @@ Cada fase tiene entregables concretos y criterios de salida, sin cajas negras.
 
 ## Tecnologías con las que trabajamos
 
-**Móvil y web**<br>
-<img src="https://skillicons.dev/icons?i=flutter" width="48" height="48" alt="Flutter" title="Flutter">
-<img src="https://skillicons.dev/icons?i=kotlin" width="48" height="48" alt="Kotlin" title="Kotlin">
-<img src="https://skillicons.dev/icons?i=swift" width="48" height="48" alt="Swift" title="Swift">
-<img src="https://skillicons.dev/icons?i=react" width="48" height="48" alt="React y React Native" title="React y React Native">
-<img src="https://skillicons.dev/icons?i=angular" width="48" height="48" alt="Angular" title="Angular">
-<img src="https://skillicons.dev/icons?i=nextjs" width="48" height="48" alt="Next.js" title="Next.js">
-<img src="https://skillicons.dev/icons?i=ts" width="48" height="48" alt="TypeScript" title="TypeScript">
-<img src="https://skillicons.dev/icons?i=tailwind" width="48" height="48" alt="Tailwind CSS" title="Tailwind CSS">
-
-**Backend**<br>
-<img src="https://skillicons.dev/icons?i=nestjs" width="48" height="48" alt="NestJS" title="NestJS">
-<img src="https://skillicons.dev/icons?i=nodejs" width="48" height="48" alt="Node.js" title="Node.js">
-<img src="https://skillicons.dev/icons?i=dotnet" width="48" height="48" alt=".NET" title=".NET">
-<img src="https://skillicons.dev/icons?i=laravel" width="48" height="48" alt="Laravel" title="Laravel">
-<img src="https://skillicons.dev/icons?i=java" width="48" height="48" alt="Java" title="Java">
-<img src="https://skillicons.dev/icons?i=spring" width="48" height="48" alt="Spring Boot" title="Spring Boot">
-
-**Datos**<br>
-<img src="https://skillicons.dev/icons?i=postgres" width="48" height="48" alt="PostgreSQL" title="PostgreSQL">
-<img src="https://skillicons.dev/icons?i=mysql" width="48" height="48" alt="MySQL" title="MySQL">
-<img src="https://skillicons.dev/icons?i=mongodb" width="48" height="48" alt="MongoDB" title="MongoDB">
-<img src="https://skillicons.dev/icons?i=redis" width="48" height="48" alt="Redis" title="Redis">
-<img src="https://skillicons.dev/icons?i=firebase" width="48" height="48" alt="Firebase" title="Firebase">
-<img src="https://skillicons.dev/icons?i=supabase" width="48" height="48" alt="Supabase" title="Supabase">
-
-**Nube y DevOps**<br>
-<img src="https://skillicons.dev/icons?i=docker" width="48" height="48" alt="Docker" title="Docker">
-<img src="https://skillicons.dev/icons?i=aws" width="48" height="48" alt="AWS" title="AWS">
-<img src="https://skillicons.dev/icons?i=azure" width="48" height="48" alt="Azure" title="Azure">
-<img src="https://skillicons.dev/icons?i=nginx" width="48" height="48" alt="Nginx" title="Nginx">
-<img src="https://skillicons.dev/icons?i=githubactions" width="48" height="48" alt="GitHub Actions" title="GitHub Actions">
-
-**Diseño, IA e integraciones**<br>
-<img src="https://skillicons.dev/icons?i=figma" width="48" height="48" alt="Figma" title="Figma">
-<img src="tech/n8n.svg" width="48" height="48" alt="n8n" title="n8n">
-<img src="tech/claude.svg" width="48" height="48" alt="Claude" title="Claude">
-<img src="tech/openai.svg" width="48" height="48" alt="OpenAI" title="OpenAI">
-<img src="tech/sap.svg" width="48" height="48" alt="SAP" title="SAP">
+<p align="center">
+  <img src="assets/tech.svg" alt="Tecnologías con las que trabajamos. Móvil y web: Flutter, Kotlin, Swift, React y React Native, Angular, Next.js, TypeScript y Tailwind CSS. Backend: NestJS, Node.js, .NET, Laravel, Java y Spring Boot. Datos: PostgreSQL, MySQL, MongoDB, Redis, Firebase y Supabase. Nube y DevOps: Docker, AWS, Azure, Nginx y GitHub Actions. Diseño, IA e integraciones: Figma, n8n, Claude, OpenAI y SAP." width="100%">
+</p>
 
 <img src="assets/divider.svg" alt="" width="100%">
 
@@ -99,7 +63,7 @@ Cuéntanos qué necesitas y te respondemos con claridad, sin compromiso.
 
 <p align="center">
   <a href="mailto:contacto@gonexa.io"><img src="https://img.shields.io/badge/Escríbenos-contacto@gonexa.io-1809BA?style=for-the-badge&amp;labelColor=0A0A1C" alt="Escríbenos a contacto@gonexa.io"></a>
-  <a href="https://gonexa.io"><img src="https://img.shields.io/badge/Visítanos-gonexa.io-3EF75C?style=for-the-badge&amp;labelColor=0A0A1C" alt="Visítanos en gonexa.io"></a>
+  <a href="https://gonexa.io"><img src="https://img.shields.io/badge/Visítanos-gonexa.io-0B7A3E?style=for-the-badge&amp;labelColor=0A0A1C" alt="Visítanos en gonexa.io"></a>
 </p>
 
 <p align="center"><sub>Hecho en Perú</sub></p>
