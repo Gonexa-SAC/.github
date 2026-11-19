@@ -1,0 +1,2 @@
+# The generator only builds the profile artwork; keep it out of GitHub's language statistics.
+tools/** linguist-documentation
