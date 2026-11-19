@@ -41,15 +41,9 @@ Somos un equipo de tecnología de Perú que dejó de construir solo para otros y
 
 ## Cómo trabajamos
 
-<table width="100%">
-  <tr>
-    <td align="center" width="20%"><b>Descubrimiento</b><br><sub>Entender el problema</sub></td>
-    <td align="center" width="20%"><b>Diseño</b><br><sub>Conceptos primero</sub></td>
-    <td align="center" width="20%"><b>Desarrollo</b><br><sub>Fundaciones sólidas</sub></td>
-    <td align="center" width="20%"><b>Despliegue</b><br><sub>Producción real</sub></td>
-    <td align="center" width="20%"><b>Soporte</b><br><sub>Monitoreo y evolución</sub></td>
-  </tr>
-</table>
+<p align="center">
+  <img src="assets/process.svg" alt="Nuestro proceso en cinco fases: descubrimiento, diseño, desarrollo, despliegue y soporte." width="100%">
+</p>
 
 Cada fase tiene entregables concretos y criterios de salida, sin cajas negras.
 

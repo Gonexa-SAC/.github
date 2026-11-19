@@ -147,4 +147,46 @@ for (const c of cards) {
 </svg>
 `);
 }
+/* ---------- Process timeline ---------- */
+const steps = [
+  ['Descubrimiento', 'Entender el problema'],
+  ['Diseño', 'Conceptos primero'],
+  ['Desarrollo', 'Fundaciones sólidas'],
+  ['Despliegue', 'Producción real'],
+  ['Soporte', 'Monitoreo y evolución'],
+];
+const colW = 172;
+const nodes = steps.map(([title, sub], i) => {
+  const x = colW / 2 + colW * i;
+  return `<circle cx="${x}" cy="48" r="13" fill="#0F1020" stroke="url(#node${i})" stroke-width="3"/>
+  <circle cx="${x}" cy="48" r="5" fill="url(#node${i})"/>
+  <text x="${x}" y="95" text-anchor="middle" font-family="${FONT}" font-size="17" font-weight="700" fill="#FFFFFF">${title}</text>
+  <text x="${x}" y="117" text-anchor="middle" font-family="${FONT}" font-size="13" fill="#A9B1C6">${sub}</text>`;
+}).join('\n  ');
+const nodeGradients = steps.map((_, i) => {
+  const t = i / (steps.length - 1);
+  const mix = (a, b) => Math.round(a + (b - a) * t).toString(16).padStart(2, '0');
+  return `<linearGradient id="node${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#${mix(0x4f, 0x3e)}${mix(0x44, 0xf7)}${mix(0xca, 0x5c)}"/><stop offset="1" stop-color="#${mix(0x31, 0x3e)}${mix(0x23, 0xf7)}${mix(0xc1, 0x5c)}"/></linearGradient>`;
+}).join('\n    ');
+writeFileSync(`${root}/assets/process.svg`, `<svg xmlns="http://www.w3.org/2000/svg" width="860" height="150" viewBox="0 0 860 150" role="img" aria-label="Cómo trabajamos: descubrimiento, diseño, desarrollo, despliegue y soporte">
+  <title>Cómo trabajamos</title>
+  <defs>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f44ca"/>
+      <stop offset="1" stop-color="#3ef75c"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f44ca" stop-opacity=".85"/>
+      <stop offset=".6" stop-color="#2a2d4a" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#3ef75c" stop-opacity=".6"/>
+    </linearGradient>
+    ${nodeGradients}
+  </defs>
+  <rect width="860" height="150" rx="18" fill="#0F1020"/>
+  <rect x=".75" y=".75" width="858.5" height="148.5" rx="17.25" fill="none" stroke="url(#edge)" stroke-width="1.5"/>
+  <rect x="${colW / 2}" y="46.5" width="${colW * (steps.length - 1)}" height="3" rx="1.5" fill="url(#rail)" fill-opacity=".7"/>
+  ${nodes}
+</svg>
+`);
+
 console.log('assets written');
